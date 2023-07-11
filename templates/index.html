@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        
+    </style>    
+</head>
+<body style=" padding: 0; margin: 0;">
+    <div id="video-background">
+        <video id="myVideo" preload="metadata" poster="{{ url_for('static', filename='preload_background.jpg') }}" autoplay loop muted>
+            <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+    <div style="height:100vh">
+        <div class="header">
+            <img class="logo" src="{{ url_for('static', filename='logo.png') }}"></img>
+                    
+            <div class="menu">
+                <span>NLP Chinese sentiment analysis</span>
+
+                <div class="contact">
+                    Team
+                </div>
+            </div>
+        </div>
+        <form action="/predict" method="post" >
+
+        
+            <div style="height:80vh;display:flex; width:100%;text-align:center;justify-content:space-around;flex-direction:row;color:white;align-items:center;;font-family:Microsoft JhengHei;font-weight:bold;padding-top:50px">
+                <!-- 文本欄 -->
+                <div style="margin-top:20px;display:flex; justify-content:center;align-items:center;flex-direction:column;">
+                    <label for="name" style="font-size:20px;letter-spacing: 8px">PREDICT</label>
+                   <!--  <input style="height:400px;caret-width: 5px;width:600px;margin-left:20px;border-radius:25px;text-align:left;outline: none;margin-top:10px;padding:20px 20px" type="text" name="text" id="text" autofocus/><br/>-->
+                    <textarea name="text" id="text" rows="4" cols="50" ></textarea>
+                    <div>
+                        <a href="/predict"><input id="submit" type="submit" value="submit"></a>    
+                    </div>    
+                </div>
+                <!-- 登入按鈕 -->
+
+            </div>    
+        </form>
+    </div>
+
+</body>
+</html>
